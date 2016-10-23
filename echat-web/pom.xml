@@ -157,6 +157,7 @@
         <finalName>echat-web</finalName>
 
         <plugins>
+
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
@@ -167,6 +168,7 @@
                     <uriEncoding>UTF-8</uriEncoding>
                     <server>tomcat7</server>
                     <path>/</path>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
 

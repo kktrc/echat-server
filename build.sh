@@ -1,8 +1,6 @@
-mvn clean package
-
 mvn clean
 
-mvn compile
+mvn install
 
 cd echat-web
 
