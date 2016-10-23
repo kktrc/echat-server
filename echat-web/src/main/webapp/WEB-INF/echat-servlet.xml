@@ -3,7 +3,8 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:beans="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc
@@ -19,6 +20,20 @@
 
     <mvc:resources mapping="/static/**" location="/static/"/>
 
+    <!--<beans:bean id="multipartResolver"-->
+                <!--class="org.springframework.web.multipart.commons.CommonsMultipartResolver"-->
+                <!--p:defaultEncoding="UTF-8"-->
+                <!--p:maxUploadSize="5400000"-->
+                <!--p:uploadTempDir="fileUpload/temp">-->
+    <!--</beans:bean>-->
+
+    <!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8" />
+        <!-- 指定所上传文件的总大小不能超过200KB。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
+        <property name="maxUploadSize" value="54000000000" />
+    </bean>
     <!--<mvc:annotation-driven>-->
         <!--<mvc:message-converters register-defaults="true">-->
             <!--<ref bean="fastJsonHttpMessageConverter"/>-->

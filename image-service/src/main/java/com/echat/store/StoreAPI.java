@@ -2,9 +2,12 @@ package com.echat.store;
 
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
+import com.qiniu.storage.Recorder;
 import com.qiniu.storage.UploadManager;
+import com.qiniu.storage.persistent.FileRecorder;
 import com.qiniu.util.Auth;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -63,6 +66,37 @@ public class StoreAPI {
       }
     }
   }
+
+  public void upload(InputStream in) throws IOException {
+
+    String recordPath = "/.../...";
+    //实例化recorder对象
+    Recorder recorder = new FileRecorder(recordPath);
+    //实例化上传对象，并且传入一个recorder对象
+    UploadManager uploadManager = new UploadManager(recorder);
+    try {
+      //调用put方法上传
+      Response res = uploadManager.put("path/file", "key", getUpToken());
+      //打印返回的信息
+      System.out.println(res.bodyString());
+    } catch (QiniuException e) {
+      Response r = e.response;
+      // 请求失败时打印的异常的信息
+      System.out.println(r.toString());
+      try {
+        //响应的文本信息
+        System.out.println(r.bodyString());
+      } catch (QiniuException e1) {
+        //ignore
+      }
+    }
+  }
+
+
+  public void upload(File file, String fileName) throws QiniuException {
+    uploadManager.put(file,fileName,getUpToken());
+  }
+
 
   public static void main(String args[]) throws IOException{
     new StoreAPI().upload();
