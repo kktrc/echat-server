@@ -2,6 +2,7 @@ package com.echat.controller;
 
 import com.echat.dao.UserDao;
 import com.echat.entity.User;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +20,16 @@ import java.util.Map;
 @RequestMapping("/main")
 public class MainController {
 
+  private static final Logger logger = Logger.getLogger(MainController.class);
+
   @Autowired
   private UserDao userDao;
 
   @ResponseBody
   @RequestMapping("/echo")
   public Map<String, Object> main() {
+
+    logger.info("======>");
     Map<String, Object> map = new HashMap<String, Object>();
     map.put("good", "boy");
     return map;
