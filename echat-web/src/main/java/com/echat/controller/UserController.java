@@ -1,6 +1,6 @@
-package com.randomchat.controller;
+package com.echat.controller;
 
-import com.randomchat.service.UserService;
+import com.echat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

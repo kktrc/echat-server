@@ -1,6 +1,6 @@
-package com.randomchat.dao;
+package com.echat.dao;
 
-import com.randomchat.entity.User;
+import com.echat.entity.User;
 
 /**
  * Created by mosl on 2016/10/21.

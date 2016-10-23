@@ -1,6 +1,4 @@
-package com.randomchat.service;
-
-import com.randomchat.entity.User;
+package com.echat.service;
 
 /**
  * Created by mosl on 2016/10/21.

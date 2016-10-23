@@ -1,4 +1,4 @@
-package com.randomchat.utils;
+package com.echat.utils;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

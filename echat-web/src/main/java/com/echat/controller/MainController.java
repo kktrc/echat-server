@@ -1,9 +1,7 @@
-package com.randomchat.controller;
+package com.echat.controller;
 
-import com.easemob.server.Main;
-import com.easemob.server.api.RestAPI;
-import com.randomchat.dao.UserDao;
-import com.randomchat.entity.User;
+import com.echat.dao.UserDao;
+import com.echat.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

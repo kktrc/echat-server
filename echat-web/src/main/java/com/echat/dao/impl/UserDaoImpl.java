@@ -1,8 +1,8 @@
-package com.randomchat.dao.impl;
+package com.echat.dao.impl;
 
-import com.randomchat.dao.UserDao;
-import com.randomchat.entity.User;
-import com.randomchat.utils.MD5Utils;
+import com.echat.dao.UserDao;
+import com.echat.entity.User;
+import com.echat.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

@@ -3,18 +3,23 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/data/mongo
+        http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
 
-    <context:component-scan base-package="com.randomchat" />
+    <context:component-scan base-package="com.echat"/>
 
     <mvc:annotation-driven/>
 
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
-            <ref bean="fastJsonHttpMessageConverter" />
+            <ref bean="fastJsonHttpMessageConverter"/>
         </mvc:message-converters>
     </mvc:annotation-driven>
 
@@ -39,42 +44,40 @@
 
     <!--&lt;!&ndash;数据源的配置 &ndash;&gt;-->
     <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>-->
-        <!--<property name="url" value="jdbc:mysql://localhost:3306/sampledb"></property>-->
-        <!--<property name="username" value="root"></property>-->
-        <!--<property name="password" value="19930205Nginx*"></property>-->
+    <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>-->
+    <!--<property name="url" value="jdbc:mysql://localhost:3306/sampledb"></property>-->
+    <!--<property name="username" value="root"></property>-->
+    <!--<property name="password" value="19930205Nginx*"></property>-->
     <!--</bean>-->
 
-    <bean id="dataSource"  class="org.apache.commons.dbcp.BasicDataSource"  destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/randomchat" />
-        <property name="username" value="root" />
-        <property name="password" value="19930205Nginx*" />
-        <property name="testOnBorrow" value="false" />
-        <property name="testWhileIdle" value="true" />
-        <property name="initialSize" value="10" />
-        <property name="maxActive" value="100" />
+    <!-- mysql -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/randomchat"/>
+        <property name="username" value="root"/>
+        <property name="password" value="19930205Nginx*"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="initialSize" value="10"/>
+        <property name="maxActive" value="100"/>
         <!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 -->
-        <property name="maxIdle" value="50" />
+        <property name="maxIdle" value="50"/>
         <!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 -->
-        <property name="minIdle" value="10" />
+        <property name="minIdle" value="10"/>
         <!-- #连接的超时时间，默认为半小时。 -->
-        <property name="minEvictableIdleTimeMillis" value="3600000" />
-    </bean>
-
-    <bean id="JdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="dataSource"/>
+        <property name="minEvictableIdleTimeMillis" value="3600000"/>
     </bean>
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <mongo:mongo host="localhost" port="27017" id="mongo" />
-    <mongo:db-factory dbname="journaldev" mongo-ref="mongo" id="mongoDbFactory" />
+    <!-- mongodb -->
+    <mongo:mongo host="localhost" port="27017" id="mongo"/>
+    <mongo:db-factory dbname="journaldev" mongo-ref="mongo" id="mongoDbFactory"/>
 
     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
     </bean>
 
 </beans>

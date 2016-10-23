@@ -1,4 +1,4 @@
-package com.randomchat.entity;
+package com.echat.entity;
 
 import lombok.Data;
 

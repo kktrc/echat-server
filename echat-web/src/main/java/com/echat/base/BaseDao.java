@@ -1,4 +1,4 @@
-package com.randomchat.base;
+package com.echat.base;
 
 /**
  * Created by mosl on 2016/10/21.

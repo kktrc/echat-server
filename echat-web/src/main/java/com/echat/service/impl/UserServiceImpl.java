@@ -1,9 +1,9 @@
-package com.randomchat.service.impl;
+package com.echat.service.impl;
 
-import com.randomchat.dao.UserDao;
-import com.randomchat.entity.User;
-import com.randomchat.service.UserService;
-import com.randomchat.utils.MD5Utils;
+import com.echat.dao.UserDao;
+import com.echat.entity.User;
+import com.echat.service.UserService;
+import com.echat.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
