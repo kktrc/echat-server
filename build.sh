@@ -1,5 +1,7 @@
 mvn clean package
 
+mvn clean
+
 mvn compile
 
 cd echat-web

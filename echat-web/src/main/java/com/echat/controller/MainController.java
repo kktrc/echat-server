@@ -30,6 +30,8 @@ public class MainController {
   public Map<String, Object> main() {
 
     logger.info("======>");
+
+//    Main main = new Main();
     Map<String, Object> map = new HashMap<String, Object>();
     map.put("good", "boy");
     return map;
