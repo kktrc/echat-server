@@ -34,6 +34,7 @@ public class MainController {
 //    Main main = new Main();
     Map<String, Object> map = new HashMap<String, Object>();
     map.put("good", "boy");
+    map.put("你好","大家好");
     return map;
   }
 
