@@ -14,5 +14,6 @@
         <module>emchat-server-java</module>
         <module>echat-common</module>
         <module>image-service</module>
+        <module>echat-admin</module>
     </modules>
 </project>

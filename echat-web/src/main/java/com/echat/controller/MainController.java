@@ -1,6 +1,7 @@
 package com.echat.controller;
 
 import com.echat.dao.UserDao;
+import com.echat.entity.Message;
 import com.echat.entity.User;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,8 @@ public class MainController {
     Map<String, Object> map = new HashMap<String, Object>();
     map.put("good", "boy");
     map.put("你好","大家好");
+
+    Message.builder().userId(1).id(34).build();
     return map;
   }
 

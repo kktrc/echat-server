@@ -17,6 +17,8 @@
 
     <mvc:annotation-driven/>
 
+    <mvc:resources mapping="/static/**" location="/static/"/>
+
     <!--<mvc:annotation-driven>-->
         <!--<mvc:message-converters register-defaults="true">-->
             <!--<ref bean="fastJsonHttpMessageConverter"/>-->
