@@ -4,6 +4,8 @@
     <title>Title</title>
 </head>
 <body>
-
+    <div class="dplayer"></div>
 </body>
+
+<script src="/static/dist/player.js" ></script>
 </html>
