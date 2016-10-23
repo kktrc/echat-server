@@ -16,4 +16,28 @@
         <module>image-service</module>
         <module>echat-admin</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>emchat-server-java</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>echat-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>image-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            
+        </dependencies>
+    </dependencyManagement>
 </project>

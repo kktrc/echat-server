@@ -23,20 +23,20 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.easemob.rest</groupId>
-            <artifactId>emchat-server-java</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>image-service</artifactId>
+            <artifactId>emchat-server-java</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>echat-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>image-service</artifactId>
             <version>${project.version}</version>
         </dependency>
 
